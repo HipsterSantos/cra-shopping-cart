@@ -4,7 +4,7 @@ const config  = require('config');
 const jwt  = require('jsonwebtoken');
 const bcrypt    = require('bcrypt');
 const _ = require('lodash');
-const auth = require('../middleware/jokes')
+const {auth,admin} = require('../middleware/jokes')
 const {User} = require('../models/user');
 const router = express.Router();
 //const joi = require('joi');
@@ -23,7 +23,9 @@ router.get('/me', auth ,async(req,res)=>{
     .select('-password');
     res.send(user);
 })
-
+router.delete('/:id',[auth,admin],async (req,res)=>{
+    res.send('user deleted')
+})
 //authentication
 router.post('/signup', async (req,res)=>{
     //here sits the whole sign up process

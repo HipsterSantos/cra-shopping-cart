@@ -14,3 +14,10 @@ module.exports = function auth(req,res,next){
         res.status(400).send('Invalid token');
     }
 }
+
+
+module.exports = function admin(){
+    if(!req.user.isAdmin ) return res.status(403).send('Request forbidden');
+    next();
+
+}
