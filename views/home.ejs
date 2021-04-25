@@ -47,6 +47,11 @@
         .contaier > .cards{
             display: flex;
             flex-direction: column;
+            box-shadow: 1px 2px 23px rgba(0,0,0,.2);
+            padding:1em;
+            border-radius: .5em;
+            
+            
 
         }
         .contaier > .cards>img{
@@ -57,9 +62,11 @@
         }
         .contaier > .cards> .description>* {
             margin-top:.5em;
+            
         }
         .contaier > .cards>button{
             width: 100px;
+        
             padding:.8em .5em;
             cursor:pointer;
             border:none;
@@ -105,71 +112,21 @@
     </nav>
 
     <div class="contaier">
+        <% products.forEach(el=>{%>
         <div class="cards">
-            <img src="../resources/img/CLOTHES/clothes-10.jpg" alt="">
+            <img src="<%-el.imgPath%>" alt="">
             <div class="description">
-                <h4>Title here </h4>
-                <span style="margin-right:auto;">$32</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate omnis deleniti ad error perspiciatis amet nam cupiditate asperiores, aliquam expedita! Labore porro, ducimus consequatur rerum aliquam eligendi alias sed eius.</p>
+                <h4><%- el.title %></h4>
+                <span style="margin-right:auto;">$<%- el.price %></span>
+                <p>
+                <%- el.description %>    
+                </p>
             
             </div>
             <button>Add to cart</button>
         </div>
+        <%})%>
 
-        <div class="cards">
-            <img src="../resources/img/CLOTHES/clothes-1.jpg" alt="">
-            <div class="description">
-                <h4>Title here</h4>
-                <span style="margin-right:auto;">$32</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate omnis deleniti ad error perspiciatis amet nam cupiditate asperiores, aliquam expedita! Labore porro, ducimus consequatur rerum aliquam eligendi alias sed eius.</p>
-            
-            </div>
-            <button>Add to cart</button>
-        </div>
-
-        <div class="cards">
-            <img src="../resources/img/CLOTHES/clothes-12.jpg" alt="">
-            <div class="description">
-                <h4>Title here</h4>
-                <span style="margin-right:auto;">$32</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate omnis deleniti ad error perspiciatis amet nam cupiditate asperiores, aliquam expedita! Labore porro, ducimus consequatur rerum aliquam eligendi alias sed eius.</p>
-            
-            </div>
-            <button>Add to cart</button>
-        </div>
-
-
-        <div class="cards">
-            <img src="../resources/img/CLOTHES/clothes-17.jpg" alt="">
-            <div class="description">
-                <h4>Title here</h4>
-                <span style="margin-right:auto;">$32</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate omnis deleniti ad error perspiciatis amet nam cupiditate asperiores, aliquam expedita! Labore porro, ducimus consequatur rerum aliquam eligendi alias sed eius.</p>
-            
-            </div>
-            <button>Add to cart</button>
-        </div>
-
-        <div class="cards">
-            <img src="../resources/img/CLOTHES/clothes-16.jpg" alt="">
-            <div class="description">
-                <h4>Title here</h4>
-                <span style="margin-right:auto;">$32</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate omnis deleniti ad error perspiciatis amet nam cupiditate asperiores, aliquam expedita! Labore porro, ducimus consequatur rerum aliquam eligendi alias sed eius.</p>
-            
-            </div>
-            <button>Add to cart</button>
-        </div>
-
-        <div class="cards">
-            <img src="../resources/img/CLOTHES/clothes-20.jpg" alt="">
-            <div class="description">
-                <h4>Title here</h4>
-                <span style="margin-right:auto;">$32</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate omnis deleniti ad error perspiciatis amet nam cupiditate asperiores, aliquam expedita! Labore porro, ducimus consequatur rerum aliquam eligendi alias sed eius.</p>
-            
-            </div>
-            <button>Add to cart</button>
         </div>
     </div>  
     </div>
