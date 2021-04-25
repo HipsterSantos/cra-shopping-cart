@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding:0;
+}
+.mainer{
+    width: 100%;
+    height: auto;
+}
+nav > ul{
+    display: flex;
+    margin-bottom:.4em;
+}
+nav > ul>li{
+    list-style: none;
+    margin-left:.5em; 
+    margin-left: auto;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+nav >ul>li>a{
+    text-decoration:none;
+}
+.contaier{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-areas: 'card1' 'card1' 'card3';
+    grid-gap:1.5em;
+    padding:2em 5em;
+}
+.contaier > .cards{
+    display: flex;
+    flex-direction: column;
+
+}
+.contaier > .cards>img{
+
+} 
+.contaier > .cards> * {
+    margin-top:.5em;
+}
+.contaier > .cards>button{
+    width: 100px;
+    padding:.8em .5em;
+    border:none;
+    border-radius: .5em;
+    background: rgba(66, 194, 62, 0.933);
+    color:#fff;
+}
