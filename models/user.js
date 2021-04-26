@@ -12,7 +12,7 @@ var USchema  = new mongoose.Schema({
     pwd: {type: String, required: true}
 });
 
-USchema.methods.generateToken = function(){);
+USchema.methods.generateToken = function(){
     var {firstname,lastname,email,_id} = this;
     var token = jwt.sign({_id,firstname,lastname,email},jwtSecret);
     return token;

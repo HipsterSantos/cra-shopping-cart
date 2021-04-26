@@ -1,3 +1,4 @@
 {
-    "jwtprivatekey":"none"
+    "jwtprivatekey":"none",
+    "jwtsecretkey":"none"
 }

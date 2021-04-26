@@ -1,3 +1,5 @@
 {
-    "jsonweboken":"jwt"
+    "jsonweboken":"ppa-jwt",
+    "jwtsecretkey":"ppa-nothing",
+    "jwtprivatekey":"ppa-nothing"
 }
