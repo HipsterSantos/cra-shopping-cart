@@ -14,9 +14,19 @@ var USchema  = new mongoose.Schema({
 
 USchema.methods.generateToken = function(){
     var {firstname,lastname,email,_id} = this;
-    var token = jwt.sign({_id,firstname,lastname,email},jwtSecret);
+    var token = jwt.sign({_id,firstname,lastname,email},jwtSecret,{
+        expiresIn:'30m'
+    });
     return token;
 }
+
+USchema.methods.encryptPassword = async function(password){
+    return await bcrypt.hash(password, await bcrypt.genSalt(10));
+}
+USchema.methods.validPassword = function (password){
+ return bcrypt.compare(password,this.password);
+} 
+
 var User = mongoose.model('User',USchema);
 module.exports{
     User
