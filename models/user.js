@@ -10,10 +10,10 @@ var USchema  = new mongoose.Schema({
     firstname: { type: String},
     lastname: {type: String},
     email:{type: String, required:true},
-    pwd: {type: String, required: true}
+    password: {type: String, required: true}
 });
 
-USchema.methods.generateToken = function(){
+USchema.methods.generateAuthToken= function(){
     var {firstname,lastname,email,_id} = this;
     var token = jwt.sign({_id,firstname,lastname,email},jwtSecret,{
         expiresIn:'30m'
@@ -21,8 +21,10 @@ USchema.methods.generateToken = function(){
     return token;
 }
 
-USchema.methods.encryptPassword = async function(password){
-    return await bcrypt.hash(password, await bcrypt.genSalt(10));
+USchema.methods.encryptedPassword = async function(password){
+    var salt =  await bcrypt.genSalt(10);
+    var password =  await bcrypt.hash(password,salt);
+    return password;
 }
 USchema.methods.validPassword = function (password){
  return bcrypt.compare(password,this.password);
