@@ -1,9 +1,10 @@
 var mongoose  = require('mongoose');
 var jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const config = require('config');
 
 
-const jwtSecret = config.get('jwtprivatekey')
+const jwtSecret = 'jwtprivatekey';
 
 var USchema  = new mongoose.Schema({
     firstname: { type: String},
@@ -28,7 +29,7 @@ USchema.methods.validPassword = function (password){
 } 
 
 var User = mongoose.model('User',USchema);
-module.exports{
+module.exports = {
     User
 }
 
